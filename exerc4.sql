@@ -1,0 +1,20 @@
+SELECT DISTINCT
+    p.ANO,
+    p.SEMESTRE,
+    p.DAT_INI,
+    p.DAT_FIM
+FROM 
+    PERIODOS_LETIVOS p
+LEFT JOIN 
+    HISTORICOS h ON p.ANO = h.ANO 
+                 AND p.SEMESTRE = h.SEMESTRE
+LEFT JOIN 
+    MATRICULAS m ON p.ANO = m.ANO 
+                 AND p.SEMESTRE = m.SEMESTRE
+LEFT JOIN 
+    TURMAS t ON p.ANO = t.ANO 
+             AND p.SEMESTRE = t.SEMESTRE
+WHERE 
+    h.ANO IS NULL 
+    AND m.ANO IS NULL
+    AND T.ANO IS NULL;

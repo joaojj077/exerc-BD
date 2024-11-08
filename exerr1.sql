@@ -1,0 +1,4 @@
+SELECT NOM_ALU, MAT_ALU, MGP, DAT_NASC,  cod_curso
+FROM ALUNOS
+WHERE COD_CURSO = 26
+order by mgp desc;
